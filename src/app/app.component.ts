@@ -8,18 +8,34 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-api';
-urlApi ="https://jsonplaceholder.typicode.com/todos/1";
+urlApi ="https://jsonplaceholder.typicode.com/todos";
 
-  constructor(private httpClient :HttpClient){
-    this.httpClient.get(this.urlApi).subscribe({
-      next:(res:any)=>{
-        console.log(res);
-      },
-      error:(err :HttpErrorResponse)=>{
-        console.log(err);
-      }
+constructor(private httpClient :HttpClient)
+{
 
-
-    });
+  let headers = {
+    headers :{
+      "authorization":"deger"
+    }
   }
+
+  this.httpClient.get(this.urlApi,headers).subscribe(res=>{
+    console.log(res);
+  })
 }
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
